@@ -1,2 +1,4 @@
-st.title("🎈 My new app")
-st.title("🎈 My new Streamlit app")
+t.iimport streamlit as st  # ← これが抜けていると NameError になります
+mport streamlit as st  # ← これが抜けていると NameError になります
+title("🎈 My new app")
+stitle("🎈 My new Streamlit app")import streamlit as st  # ← これが抜けていると NameError になります
