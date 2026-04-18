@@ -4,52 +4,65 @@
     // 詳細情報は次を確認してください: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
     "configurations": [
-        {
-            "name": "Attach to Edge",
-            "port": 9222,
-            "request": "attach",
-            "type": "msedge",
-            "webRoot": "${workspaceFolder}"
-        },
-        {
-            "name": "Containers .NET Attach (Preview)",
-            "type": "docker",
-            "request": "attach",
-            "platform": "netCore",
-            "sourceFileMap": {
-                "/src": "${workspaceFolder}"
-            }
-        },
-
-
-        {
+   streamlit     {
             "name": "Attach to Chrome",
             "port": 9222,
             "request": "attach",
             "type": "chrome",
             "webRoot": "${workspaceFolder}"
         },
+
+
         {
-            "name": "Launch Chrome",
+            "name": "Attach",
+            "port": 9229,
+            "request": "attach",
+            "skipFiles": [
+                "<node_internals>/**"
+            ],
+            "type": "node"
+        },
+        {
+            "args": [
+                "--extensionDevelopmentPath=${workspaceFolder}"
+            ],
+            "name": "Launch Extension",
+            "outFiles": [
+                "${workspaceFolder}/out/**/*.js"
+            ],
+            "preLaunchTask": "npm",
             "request": "launch",
-            "type": "chrome",
+            "type": "extensionHost"
+        },
+
+        {
+            "name": "Launch Edge",
+            "request": "launch",
+            "type": "msedge",
             "url": "http://localhost:8080",
             "webRoot": "${workspaceFolder}"
         },
+
+        
         {
-            "name": "Attach to Chrome",
-            "port": 9222,
-            "request": "attach",
-            "type": "chrome",
-            "webRoot": "${workspaceFolder}"
+            "type": "lldb",
+            "request": "launch",
+            "name": "Launch",
+            "program": "${workspaceFolder}/<program>",
+            "args": [],
+            "cwd": "${workspaceFolder}"
         },
 
+
+
+
         {
-            "name": "Python デバッガー: 現在のファイル",
-            "type": "debugpy",
+            "name": "Launch",
+            "type": "lldb",
             "request": "launch",
-            "program": "${file}",
-            "console": "integratedTerminal"
+            "program": "${workspaceRoot}/<your program>",
+            "args": [],
+            "cwd": "${workspaceRoot}"
         }
     ]
 }
